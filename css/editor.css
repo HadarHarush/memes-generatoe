@@ -1,0 +1,52 @@
+
+canvas {
+    background-color: tomato;
+}
+
+
+
+
+
+
+
+
+
+/* Components: */
+
+/* Editor-page: */
+
+.editor-page > *{
+    width: 40%;
+    background-color: blue;
+}
+
+.editor-page > .main-canvas-container {
+    margin-inline-end: 10px;
+}
+.editor-page > .control-bar {
+    margin-inline-start: 10px;
+}
+
+.control-bar button {
+    height: 2rem;
+    width: 2rem;
+}
+.control-bar > *:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.control-bar .general-control-container button {
+    width: unset;
+}
+.control-bar > .text-control-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.emojis-control-container {
+    height: 3rem;
+    background-color: violet;
+}
+
+/* Canvas: */
+

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/editor.css">
+    <link rel="stylesheet" href="css/gallery.css">
+    <title>Meme Editor</title>
+</head>
+
+<body onload="renderPage()">
+    <nav class="main-nav flex justify-center">
+        <wrapper class="main-container fg-1 flex space-between">
+            <div class="logo">
+                <a class="center-childs">LOGO</a>
+            </div>
+            <ul class="pages-nav clean-list flex">
+                <li class="page-li">
+                    <a class="center-childs" href="">Gallery</a>
+                </li>
+                <li class="page-li">
+                    <a class="center-childs" href="">Memes</a>
+                </li>
+                <li class="page-li">
+                    <a class="center-childs" href="">About</a>
+                </li>
+            </ul>
+        </wrapper>
+    </nav>
+
+    <section class="page-content main-container">
+        <section class="editor-page flex justify-center">
+
+            <wrapper class="main-canvas-container">
+                <canvas class="main-canvas"></canvas>
+            </wrapper>
+
+            <wrapper class="control-bar flex column">
+
+                <div class="line-control-container">
+                    <input type="text" placeholder="Text line">
+                    <div class="buttons-container flex">
+                        <button class="line-control-button">
+                            <img src="images/buttons/arrow.png" alt="up">
+                        </button>
+                        <button class="line-control-button">
+                            <img src="images/buttons/arrow.png" alt="down">
+                        </button>
+                        <button class="line-control-button">
+                            <img src="images/buttons/plus.png" alt="add">
+                        </button>
+                    </div>
+                </div>
+
+                <div class="text-control-container grid">
+                    <button class="text-control-button">
+                        <img src="images/buttons/inc-font.png" alt="">
+                    </button>
+                    <button class="text-control-button">
+                        <img src="images/buttons/dec-font.png" alt="">
+                    </button>
+                    <button class="text-control-button">
+                        <img src="images/buttons/align-left.png" alt="">
+                    </button>
+                    <button class="text-control-button">
+                        <img src="images/buttons/align-center.png" alt="">
+                    </button>
+                    <button class="text-control-button">
+                        <img src="images/buttons/align-right.png" alt="">
+                    </button>
+                    <button class="text-control-button">
+                        <img src="images/buttons/color-plate.png" alt="">
+                    </button>
+
+                    <select name="font-select" id="" value="impact">
+                        <option value="impact">IMPACT</option>
+                        <option value="impact">IMPACT</option>
+                        <option value="impact">IMPACT</option>
+                        <option value="impact">IMPACT</option>
+                    </select>
+                </div>
+
+                <div class="emojis-control-container flex">
+
+                    <a class="emoji-image-container" href="">
+                        <img class="emoji-image" src="" alt="">
+                    </a>
+                    <a class="emoji-image-container" href="">
+                        <img class="emoji-image" src="" alt="">
+                    </a>
+                    <a class="emoji-image-container" href="">
+                        <img class="emoji-image" src="" alt="">
+                    </a>
+                    <a class="emoji-image-container" href="">
+                        <img class="emoji-image" src="" alt="">
+                    </a>
+                    <a class="emoji-image-container" href="">
+                        <img class="emoji-image" src="" alt="">
+                    </a>
+                    <a class="emoji-image-container" href="">
+                        <img class="emoji-image" src="" alt="">
+                    </a>
+                    <a class="emoji-image-container" href="">
+                        <img class="emoji-image" src="" alt="">
+                    </a>
+                </div>
+
+                <div class="general-control-container">
+                    <button class="share-button">share</button>
+                    <button class="download-button">download</button>
+                </div>
+
+            </wrapper>
+
+
+
+        </section>
+    </section>
+
+    <section class="about-page"></section>
+
+
+
+    <script src="js/services/memes-base.js"></script>
+    <script src="js/services/categories-service.js"></script>
+    <script src="js/services/meme-data.js"></script>
+    <script src="js/services/canvas-render.js"></script>
+    <script src="js/pages/gallery/gallery-page.js"></script>
+    <script src="js/pages/editor/editor-page.js"></script>
+    <script src="js/controller.js"></script>
+
+</body>
+
+</html>

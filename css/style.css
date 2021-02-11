@@ -1,0 +1,144 @@
+/* Fonts: */
+
+@font-face {
+    font-family: apercu;
+    src: url(../fonts/apercu/Apercu-Regular.otf);
+}
+
+@font-face {
+    font-family: apercu-bold;
+    src:url(../fonts/apercu/Apercu\ Pro\ Bold.otf)
+}
+
+@font-face {
+    font-family: impact;
+    src:url(../fonts/impact/impact.ttf)
+}
+
+
+/* General: */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: apercu, serif;
+    color: #ffffff;
+}
+
+body {
+    margin: 0;
+    background-color: #34495e;
+}
+
+h1, h2, h3, h4, h5 {
+    margin: 0 0;
+    margin-block-start: unset;
+    margin-block-end: unset;
+    font-weight: unset;
+    font-family: apercu-bold;
+}
+
+p {
+    margin-block-start: unset;
+    margin-block-end: unset;
+}
+
+a {
+    color: unset;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button {
+    outline: none;
+    background-color: unset;
+    cursor: pointer;
+    border: unset;
+}
+
+
+
+/* Layout: */
+
+.main-container {
+    max-width: 1060px;
+    /* background-color: aqua; */
+    margin: 0 auto;
+}
+
+
+/* Helpers: */
+
+.center-childs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clean-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.light-text {
+    color: #ffffff !important;
+}
+
+/* Flex-helpers: */
+
+.flex {
+    display: flex;
+}
+
+.flex.column {
+    flex-direction: column;
+}
+
+.flex.justify-center {
+    justify-content: center;
+}
+
+.flex.space-between {
+    justify-content: space-between;
+}
+
+.flex.align-center {
+    align-items: center;
+}
+
+.flex > .fg-1 {
+    flex-grow: 1;
+}
+
+
+/* Components: */
+
+/* Main-nav: */
+
+.main-nav {
+    height: 100px;
+    background-image: linear-gradient(to right, #0f9bb2 , #22af8d, #22af8d) !important;
+    border-radius: 100px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+    color: #ffffff !important; 
+    /* padding: 0 100px; */
+}
+
+.main-nav .logo a {
+    font-family: apercu-bold;
+}
+
+.main-nav li:not(:last-child) {
+    margin-inline-end: 2rem;
+}
+
+.main-nav a {
+    height: 100px;
+    width: 100px;
+    /* background-color: black; */
+}
