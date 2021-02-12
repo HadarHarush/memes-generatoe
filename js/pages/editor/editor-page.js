@@ -38,10 +38,13 @@ function getEditorHtml() {
                     <img src="images/buttons/arrow.png" alt="down">
                 </button>
                 <button class="line-control-button" onclick="onSelectDownClick()">
-                    <img src="images/buttons/arrow.png" alt="down">
+                    <img src="images/buttons/chevron-down.png" alt="down">
                 </button>
                 <button class="line-control-button" onclick="onAddLine()">
                     <img src="images/buttons/plus.png" alt="add">
+                </button>
+                <button class="line-control-button" onclick="onRemoveLine()">
+                    <img src="images/buttons/remove.svg" alt="add">
                 </button>
             </div>
         </div>
@@ -67,7 +70,7 @@ function getEditorHtml() {
             </button>
 
             <select name="font-select" id="" value="impact">
-                <option value="impact">IMPACT</option>
+                <option value="impact" style="font-family: impact;">IMPACT</option>
                 <option value="impact">IMPACT</option>
                 <option value="impact">IMPACT</option>
                 <option value="impact">IMPACT</option>
@@ -184,6 +187,14 @@ function onSelectDownClick() {
     // data:
     // this function will be write only after we will create a text-area property:
     selectDown();
+
+    // DOM:
+    refreshMeme();
+}
+
+function onRemoveLine() {
+    // data:
+    removeSelectedLine();
 
     // DOM:
     refreshMeme();

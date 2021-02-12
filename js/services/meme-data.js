@@ -7,7 +7,7 @@ let gCurrs = {
         content: 'Your text here here here',
         size: 30,
         color: 'white',
-        font: 'arial',
+        font: 'impact',
         padding: 10
     },
     pos: {
@@ -63,8 +63,11 @@ function createLine() {
         textBoxPos: null
     }
 
+    let linesCount = 1;
+    if (gMeme) linesCount = gMeme.lines.length + 1
+
     res.textBoxMeasures = getTextBoxMeasures(res);
-    res.textPos = getDefaultTextPos(res.nthLine, res.textBoxMeasures),
+    res.textPos = getDefaultTextPos(linesCount, res.textBoxMeasures),
         res.textBoxPos = getTextBoxPos(res);
 
     return res;
@@ -135,6 +138,11 @@ function changeSelectedLineColor(val) {
     line.text.color = val;
 }
 
+function removeSelectedLine() {
+    let idx = gMeme.selectedLineIdx;
+    gMeme.lines.splice(idx, 1);
+}
+
 function changeDefaultColor(val) {
     gCurrs.text.color = val;
 }
@@ -175,14 +183,15 @@ function getDefaultTextPos(lineNth, textBoxMeasures) {
         2: {
             x: getCanvasXCenter(),
             y: (canvasMeasures.height / 8) * 7 - textBoxMeasures.height
-        },
-        3: {
-            x: getCanvasXCenter(),
-            y: getCanvasYCenter()
         }
     }
 
-    console.log('pos[lineNth]:', pos[lineNth]);
+    if (lineNth <= 2) return pos[lineNth];
+    return {
+        x: getCanvasXCenter(),
+        y: getCanvasYCenter()
+    }
+
     return pos[lineNth];
 }
 
@@ -206,8 +215,6 @@ function findLineClicked(pos) {
         //check if the click was in all four textBox bounderies:
         return isClickInBounderies(pos, bounderiesMap)
     });
-
-    console.log('res:', res)
     return res;
 }
 

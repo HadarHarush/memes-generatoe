@@ -12,8 +12,8 @@
 </head>
 
 <body onload="renderPage()">
-    <nav class="main-nav flex justify-center">
-        <wrapper class="main-container fg-1 flex space-between">
+    <nav class="main-nav main-container-layout flex justify-center">
+        <wrapper class="main-content-layout fg-1 flex space-between">
             <div class="logo">
                 <a class="center-childs">LOGO</a>
             </div>
@@ -31,93 +31,8 @@
         </wrapper>
     </nav>
 
-    <section class="page-content main-container">
-        <section class="editor-page flex justify-center">
+    <section class="page-content main-content-layout">
 
-            <wrapper class="main-canvas-container">
-                <canvas class="main-canvas"></canvas>
-            </wrapper>
-
-            <wrapper class="control-bar flex column">
-
-                <div class="line-control-container">
-                    <input type="text" placeholder="Text line">
-                    <div class="buttons-container flex">
-                        <button class="line-control-button">
-                            <img src="images/buttons/arrow.png" alt="up">
-                        </button>
-                        <button class="line-control-button">
-                            <img src="images/buttons/arrow.png" alt="down">
-                        </button>
-                        <button class="line-control-button">
-                            <img src="images/buttons/plus.png" alt="add">
-                        </button>
-                    </div>
-                </div>
-
-                <div class="text-control-container grid">
-                    <button class="text-control-button">
-                        <img src="images/buttons/inc-font.png" alt="">
-                    </button>
-                    <button class="text-control-button">
-                        <img src="images/buttons/dec-font.png" alt="">
-                    </button>
-                    <button class="text-control-button">
-                        <img src="images/buttons/align-left.png" alt="">
-                    </button>
-                    <button class="text-control-button">
-                        <img src="images/buttons/align-center.png" alt="">
-                    </button>
-                    <button class="text-control-button">
-                        <img src="images/buttons/align-right.png" alt="">
-                    </button>
-                    <button class="text-control-button">
-                        <img src="images/buttons/color-plate.png" alt="">
-                    </button>
-
-                    <select name="font-select" id="" value="impact">
-                        <option value="impact">IMPACT</option>
-                        <option value="impact">IMPACT</option>
-                        <option value="impact">IMPACT</option>
-                        <option value="impact">IMPACT</option>
-                    </select>
-                </div>
-
-                <div class="emojis-control-container flex">
-
-                    <a class="emoji-image-container" href="">
-                        <img class="emoji-image" src="" alt="">
-                    </a>
-                    <a class="emoji-image-container" href="">
-                        <img class="emoji-image" src="" alt="">
-                    </a>
-                    <a class="emoji-image-container" href="">
-                        <img class="emoji-image" src="" alt="">
-                    </a>
-                    <a class="emoji-image-container" href="">
-                        <img class="emoji-image" src="" alt="">
-                    </a>
-                    <a class="emoji-image-container" href="">
-                        <img class="emoji-image" src="" alt="">
-                    </a>
-                    <a class="emoji-image-container" href="">
-                        <img class="emoji-image" src="" alt="">
-                    </a>
-                    <a class="emoji-image-container" href="">
-                        <img class="emoji-image" src="" alt="">
-                    </a>
-                </div>
-
-                <div class="general-control-container">
-                    <button class="share-button">share</button>
-                    <button class="download-button">download</button>
-                </div>
-
-            </wrapper>
-
-
-
-        </section>
     </section>
 
     <section class="about-page"></section>

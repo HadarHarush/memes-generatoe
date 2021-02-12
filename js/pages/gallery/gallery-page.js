@@ -11,10 +11,10 @@ function getGalleryHtml() {
     let categoriesHtml = getCategoriesBarHtml();
     let cardsHtml = getMemeCardsHtml();
 
-    let res = `<section class="gallery-page main-container">
-    <nav class="memes-nav">
+    let res = `<section class="gallery-page flex column">
+    <nav class="memes-nav flex space-between align-center">
         <div class="search-box">
-            <input type="text">
+            <input type="text" placeholder="SEARCH" maxlength="7" size="10">
         </div>
 
         ${categoriesHtml}
@@ -35,7 +35,7 @@ function getCategoriesBarHtml() {
         return `<li class="category-button">${item.name}</li>`;
     }).join('');
 
-    let res = `<ul class="categories-bar">
+    let res = `<ul class="categories-bar clean-list flex">
                     ${liHtml}
                     <li class="category-button">More...</li>
                 </ul>`;
@@ -47,7 +47,7 @@ function getMemeCardsHtml() {
     let memes = getMemes();
 
     let res = memes.map(item => {
-        return `<article class="meme-preview-box" onclick="onMemeImageSelect(this)" data-id="${item.id}">
+        return `<article class="meme-preview-box center-childs" onclick="onMemeImageSelect(this)" data-id="${item.id}">
                     <img src="${item.rootUrl}" alt="">
                 </article>`
     }).join('');

@@ -48,5 +48,9 @@ canvas {
     background-color: violet;
 }
 
+select[name="font-select"] > * {
+    font-family: impact;
+}
+
 /* Canvas: */
 

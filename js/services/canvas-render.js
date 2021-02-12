@@ -88,10 +88,7 @@ function onDown(ev) {
     //until here there is no bug
     refreshMeme()
 
-    console.log('found!');
-
     document.body.style.cursor = 'grabbing';
-    console.log('gMeme selected idx:', gMeme.selectedLineIdx);
 }
 
 function onMove(ev) {
@@ -109,7 +106,6 @@ function onMove(ev) {
             x: lastLineTextPos.x + dist.x,
             y: lastLineTextPos.y + dist.y
         }
-        console.log('gMeme selected idx:', gMeme.selectedLineIdx);
 
         updateLineData(getSelectedLine(), 'textPos', newPos);
 
@@ -117,8 +113,6 @@ function onMove(ev) {
 
         //reset datas:
         gClicksInfo.mouseMoveLastDraw = pos;
-        console.log('gMeme selected idx:', gMeme.selectedLineIdx);
-
     }
 }
 
@@ -129,7 +123,6 @@ function onUp() {
     //     selectLine(gClicksInfo.pos);
     // }
     document.body.style.cursor = '';
-    console.log('gMeme selected idx:', gMeme.selectedLineIdx);
 }
 
 function getEvPos(ev) {
@@ -155,15 +148,6 @@ function clearCanvas() {
     gCtx.fillRect(0, 0, gElCanvas.width, gElCanvas.height);
 }
 
-function drawLine(line) {
-    gCtx.beginPath();
-    gCtx.font = `${line.text.size}px ${line.text.font}`;
-    gCtx.fillStyle = line.text.color;
-    gCtx.textAlign = "center";
-    gCtx.fillText(line.text.content, line.textPos.x, line.textPos.y);
-
-    gCtx.fill();
-}
 
 function drawImage(url, dx = 0, dy = 0) {
     let img = new Image();
@@ -193,6 +177,16 @@ function getCanvasXCenter() {
 function getCanvasYCenter() {
     let res = gElCanvas.offsetHeight / 2;
     return res;
+}
+
+function drawLine(line) {
+    gCtx.beginPath();
+    gCtx.font = `${line.text.size}px ${line.text.font}`;
+    gCtx.fillStyle = line.text.color;
+    gCtx.textAlign = "center";
+    gCtx.fillText(line.text.content, line.textPos.x, line.textPos.y);
+
+    gCtx.fill();
 }
 
 function drawTextBox(line) {

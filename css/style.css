@@ -1,17 +1,19 @@
+
+
 /* Fonts: */
 
 @font-face {
-    font-family: apercu;
+    font-family: 'apercu';
     src: url(../fonts/apercu/Apercu-Regular.otf);
 }
 
 @font-face {
-    font-family: apercu-bold;
+    font-family: 'apercu-bold';
     src:url(../fonts/apercu/Apercu\ Pro\ Bold.otf)
 }
 
 @font-face {
-    font-family: impact;
+    font-family: 'impact';
     src:url(../fonts/impact/impact.ttf)
 }
 
@@ -58,13 +60,27 @@ button {
     border: unset;
 }
 
+input {
+    border: none;
+    /* -webkit-appearance: none;
+    -ms-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: wheat; */
+    outline: none;
+}
+
 
 
 /* Layout: */
 
-.main-container {
+.main-container-layout {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.main-content-layout {
     max-width: 1060px;
-    /* background-color: aqua; */
     margin: 0 auto;
 }
 
@@ -122,9 +138,8 @@ button {
     height: 100px;
     background-image: linear-gradient(to right, #0f9bb2 , #22af8d, #22af8d) !important;
     border-radius: 100px;
-    margin-left: 20px;
-    margin-right: 20px;
     margin-top: 20px;
+    margin-bottom: 20px;
     color: #ffffff !important; 
     /* padding: 0 100px; */
 }
@@ -141,4 +156,13 @@ button {
     height: 100px;
     width: 100px;
     /* background-color: black; */
+}
+
+
+/* page Content */
+
+.page-content {
+    border-radius: 50px;
+    background-color: #4e6275;
+    margin-bottom: 20px;
 }
