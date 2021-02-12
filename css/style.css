@@ -99,6 +99,16 @@ input {
     list-style-type: none;
 }
 
+.rotate90 {
+    transform: rotate(90deg);
+}
+.rotate180 {
+    transform: rotate(180deg);
+}
+.rotate270 {
+    transform: rotate(270deg);
+}
+
 .light-text {
     color: #ffffff !important;
 }
@@ -123,6 +133,10 @@ input {
 
 .flex.align-center {
     align-items: center;
+}
+
+.flex.align-start {
+    align-items: flex-start;
 }
 
 .flex > .fg-1 {

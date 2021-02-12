@@ -183,10 +183,14 @@ function drawLine(line) {
     gCtx.beginPath();
     gCtx.font = `${line.text.size}px ${line.text.font}`;
     gCtx.fillStyle = line.text.color;
+    gCtx.strokStyle = 'black'
     gCtx.textAlign = "center";
     gCtx.fillText(line.text.content, line.textPos.x, line.textPos.y);
+    gCtx.strokeText(line.text.content, line.textPos.x, line.textPos.y);
+    gCtx.lineWidth = 2;
 
     gCtx.fill();
+    gCtx.stroke();
 }
 
 function drawTextBox(line) {

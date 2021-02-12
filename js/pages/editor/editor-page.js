@@ -20,92 +20,101 @@ function renderEditor() {
 function getEditorHtml() {
     let res = `<p class="text-box-simulate" style="position: absolute; z-index: -10; visibility: hidden;"></p>
     
-    <section class="editor-page flex justify-center">
+    <section class="editor-page flex justify-center align-start">
 
-    <wrapper class="main-canvas-container">
-        <canvas class="main-canvas"></canvas>
+    <wrapper class="main-canvas-holder center-childs">    
+        <wrapper class="main-canvas-container">
+            <canvas class="main-canvas"></canvas>
+        </wrapper>
     </wrapper>
 
-    <wrapper class="control-bar flex column">
+    <wrapper class="control-bar-container">
 
-        <div class="line-control-container">
-            <input type="text" placeholder="Text line" onchange="onTextInputChange(this)">
-            <div class="buttons-container flex">
-                <button class="line-control-button" onclick="onMoveClick(-1)">
-                    <img src="images/buttons/arrow.png" alt="up">
-                </button>
-                <button class="line-control-button" onclick="onMoveClick(1)">
-                    <img src="images/buttons/arrow.png" alt="down">
-                </button>
-                <button class="line-control-button" onclick="onSelectDownClick()">
-                    <img src="images/buttons/chevron-down.png" alt="down">
-                </button>
-                <button class="line-control-button" onclick="onAddLine()">
-                    <img src="images/buttons/plus.png" alt="add">
-                </button>
-                <button class="line-control-button" onclick="onRemoveLine()">
-                    <img src="images/buttons/remove.svg" alt="add">
-                </button>
-            </div>
+        <div class="control-bar flex column center-childs">
+        
+        
+        <input class="text-picker" type="text" placeholder="Text line" onchange="onTextInputChange(this)">
+        <div class="line-control-container flex">
+        
+            <button class="line-control-button center-childs" onclick="onMoveClick(-1)">
+                <img class="rotate90" src="images/buttons/arrow.png" alt="up">
+            </button>
+            <button class="line-control-button center-childs" onclick="onMoveClick(1)">
+                <img class="rotate270" src="images/buttons/arrow.png" alt="down">
+            </button>
+            <button class="line-control-button center-childs" onclick="onSelectDownClick()">
+                <img src="images/buttons/chevron-down.png" alt="down">
+            </button>
+            <button class="line-control-button center-childs" onclick="onAddLine()">
+                <img src="images/buttons/plus.png" alt="add">
+            </button>
+            <button class="line-control-button center-childs" onclick="onRemoveLine()">
+                <img src="images/buttons/remove.svg" alt="add">
+            </button>
+
+    </div>
+
+    <div class="text-control-container grid">
+        <button class="text-control-button" onclick="onIncFont()">
+            <img src="images/buttons/inc-font.png" alt="">
+        </button>
+        <button class="text-control-button" onclick="onDecFont()">
+            <img src="images/buttons/dec-font.png" alt="">
+        </button>
+        <button class="text-control-button">
+            <img src="images/buttons/align-left.png" alt="">
+        </button>
+        <button class="text-control-button">
+            <img src="images/buttons/align-center.png" alt="">
+        </button>
+        <button class="text-control-button">
+            <img src="images/buttons/align-right.png" alt="">
+        </button>
+        <button class="text-control-button">
+            <input type="color" name="color-picker" onchange="onColorChange(this)">
+        </button>
+
+        <select name="font-select" id="" value="impact">
+            <option value="impact" style="font-family: impact;">IMPACT</option>
+            <option value="impact">IMPACT</option>
+            <option value="impact">IMPACT</option>
+            <option value="impact">IMPACT</option>
+        </select>
+    </div>
+
+    <div class="emojis-control-container flex">
+
+        <a class="emoji-image-container" href="">
+            <img class="emoji-image" src="" alt="">
+        </a>
+        <a class="emoji-image-container" href="">
+            <img class="emoji-image" src="" alt="">
+        </a>
+        <a class="emoji-image-container" href="">
+            <img class="emoji-image" src="" alt="">
+        </a>
+        <a class="emoji-image-container" href="">
+            <img class="emoji-image" src="" alt="">
+        </a>
+        <a class="emoji-image-container" href="">
+            <img class="emoji-image" src="" alt="">
+        </a>
+        <a class="emoji-image-container" href="">
+            <img class="emoji-image" src="" alt="">
+        </a>
+        <a class="emoji-image-container" href="">
+            <img class="emoji-image" src="" alt="">
+        </a>
+    </div>
+
+    <div class="general-control-container flex">
+        <button class="share-button">share</button>
+        <button class="download-button">download</button>
+    </div>
+        
         </div>
 
-        <div class="text-control-container grid">
-            <button class="text-control-button" onclick="onIncFont()">
-                <img src="images/buttons/inc-font.png" alt="">
-            </button>
-            <button class="text-control-button" onclick="onDecFont()">
-                <img src="images/buttons/dec-font.png" alt="">
-            </button>
-            <button class="text-control-button">
-                <img src="images/buttons/align-left.png" alt="">
-            </button>
-            <button class="text-control-button">
-                <img src="images/buttons/align-center.png" alt="">
-            </button>
-            <button class="text-control-button">
-                <img src="images/buttons/align-right.png" alt="">
-            </button>
-            <button class="text-control-button">
-                <input type="color" name="color-picker" onchange="onColorChange(this)">
-            </button>
-
-            <select name="font-select" id="" value="impact">
-                <option value="impact" style="font-family: impact;">IMPACT</option>
-                <option value="impact">IMPACT</option>
-                <option value="impact">IMPACT</option>
-                <option value="impact">IMPACT</option>
-            </select>
-        </div>
-
-        <div class="emojis-control-container flex">
-
-            <a class="emoji-image-container" href="">
-                <img class="emoji-image" src="" alt="">
-            </a>
-            <a class="emoji-image-container" href="">
-                <img class="emoji-image" src="" alt="">
-            </a>
-            <a class="emoji-image-container" href="">
-                <img class="emoji-image" src="" alt="">
-            </a>
-            <a class="emoji-image-container" href="">
-                <img class="emoji-image" src="" alt="">
-            </a>
-            <a class="emoji-image-container" href="">
-                <img class="emoji-image" src="" alt="">
-            </a>
-            <a class="emoji-image-container" href="">
-                <img class="emoji-image" src="" alt="">
-            </a>
-            <a class="emoji-image-container" href="">
-                <img class="emoji-image" src="" alt="">
-            </a>
-        </div>
-
-        <div class="general-control-container">
-            <button class="share-button">share</button>
-            <button class="download-button">download</button>
-        </div>
+        
 
     </wrapper>
 

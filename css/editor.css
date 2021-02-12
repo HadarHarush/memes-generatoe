@@ -1,36 +1,65 @@
 
-canvas {
-    background-color: tomato;
-}
-
-
-
-
-
-
-
-
 
 /* Components: */
 
 /* Editor-page: */
 
+.editor-page {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
 .editor-page > *{
-    width: 40%;
-    background-color: blue;
+    /* background-color: blue; */
 }
 
-.editor-page > .main-canvas-container {
+.editor-page > .main-canvas-holder {
     margin-inline-end: 10px;
+    width: 30%;
 }
-.editor-page > .control-bar {
+.editor-page > .control-bar-container {
     margin-inline-start: 10px;
+    width: 50%;
 }
 
+
+/* Canvas: */
+
+.main-canvas-holder > .main-canvas-container {
+    display: block;
+    width: 100%;
+    box-shadow: 0px 0px 15px 2px #1f1f1f;
+}
+
+
+/* Controls bar */
+
+.control-bar {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: #22af8d;
+    border-radius: 1.5rem;
+    box-shadow: 0px 0px 15px 2px #1f1f1f;
+}
+
+/* buttons: */
 .control-bar button {
     height: 2rem;
     width: 2rem;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+.control-bar button img {
+    height: 1.5rem;
+    max-width: 1.5rem;
+}
+
+
+
 .control-bar > *:not(:last-child) {
     margin-bottom: 10px;
 }
@@ -44,7 +73,7 @@ canvas {
 }
 
 .emojis-control-container {
-    height: 3rem;
+    /* height: 3rem; */
     background-color: violet;
 }
 
@@ -52,5 +81,47 @@ select[name="font-select"] > * {
     font-family: impact;
 }
 
-/* Canvas: */
+/* little control bar components: */
 
+/* text input: */
+
+.text-picker {
+    width: 80%;
+    height: 2rem;
+}
+
+/* line-control */
+
+.line-control-container > button:not(:last-child){
+    margin-inline-end: 10px;
+}
+/* .line-control-container > button {
+    padding: 2px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: white;
+} */
+
+/* text control: */
+
+.text-control-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-row-gap: 5px;
+    grid-column-gap: 10px;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #3498db;
+}
+
+.text-control-container select {
+    grid-area: 2 / 1 / span 1 / span 2;
+}
+
+/* general buttuns: */
+
+.general-control-container > button:not(:last-child) {
+    margin-inline-end: 10px;
+}
