@@ -178,6 +178,9 @@ function drawImage(url, dx = 0, dy = 0, callback) {
         let selectedLine = getSelectedLine();
         if (selectedLine) drawTextBox(selectedLine);
 
+        // because we now created new meme, we need to unsave it:
+        unSave();
+
         if (callback) {
             callback();
         }

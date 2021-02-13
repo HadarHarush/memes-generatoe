@@ -4,7 +4,9 @@
 //for the canvas stuff, the model is: update data (in meme-data.js), and after it, render the data on the canvas.
 
 function renderEditor() {
-    renderEditorBasic();
+    document.body.classList.remove('gallery-open');
+    document.body.classList.add('editor-open');
+
     initCanvas();
 
     //update meme data:
@@ -15,116 +17,6 @@ function renderEditor() {
 
     //draw basic meme:
     drawMeme();
-}
-
-function getEditorHtml() {
-    let res = `<p class="text-box-simulate" style="position: absolute; z-index: -10; visibility: hidden;"></p>
-    
-    <section class="editor-page flex justify-center align-start">
-
-    <wrapper class="main-canvas-holder center-childs big-fat-modal">    
-        <wrapper class="main-canvas-container">
-            <canvas class="main-canvas"></canvas>
-        </wrapper>
-    </wrapper>
-
-    <wrapper class="control-bar-container big-fat-modal">
-
-        <div class="control-bar flex column center-childs">
-        
-        
-        <input class="text-picker" type="text" placeholder="Text line" oninput="onTextInputChange(this)">
-        <div class="line-control-container flex">
-        
-            <button class="line-control-button center-childs hide" onclick="onMoveClick(-1)">
-                <img class="rotate90" src="images/buttons/arrow.png" alt="up">
-            </button>
-            <button class="line-control-button center-childs hide" onclick="onMoveClick(1)">
-                <img class="rotate270" src="images/buttons/arrow.png" alt="down">
-            </button>
-            
-            <button class="add-line-button line-control-button center-childs" onclick="onAddLine()">
-                <img src="images/buttons/plus.png" alt="add">
-            </button>
-
-            <button class="select-down-button line-control-button center-childs" onclick="onSelectDownClick()">
-                <img src="images/buttons/chevron-down.png" alt="down">
-            </button>
-
-            <button class="remove-line-button line-control-button center-childs" onclick="onRemoveLine()">
-                <img src="images/buttons/remove.svg" alt="add">
-            </button>
-
-    </div>
-
-    <div class="text-control-container grid">
-        <button class="text-control-button" onclick="onIncFont()">
-            <img src="images/buttons/inc-font.png" alt="">
-        </button>
-        <button class="text-control-button" onclick="onDecFont()">
-            <img src="images/buttons/dec-font.png" alt="">
-        </button>
-        <button class="text-control-button">
-            <input type="color" name="color-picker" onchange="onColorChange(this)">
-        </button>
-
-        <select name="font-select" id="" value="impact">
-            <option value="impact" style="font-family: impact;">IMPACT</option>
-            <option value="impact">IMPACT</option>
-            <option value="impact">IMPACT</option>
-            <option value="impact">IMPACT</option>
-        </select>
-    </div>
-
-    <div class="emojis-control-container flex">
-
-        <a class="emoji-image-container" href="">
-            <img class="emoji-image" src="" alt="">
-        </a>
-        <a class="emoji-image-container" href="">
-            <img class="emoji-image" src="" alt="">
-        </a>
-        <a class="emoji-image-container" href="">
-            <img class="emoji-image" src="" alt="">
-        </a>
-        <a class="emoji-image-container" href="">
-            <img class="emoji-image" src="" alt="">
-        </a>
-        <a class="emoji-image-container" href="">
-            <img class="emoji-image" src="" alt="">
-        </a>
-        <a class="emoji-image-container" href="">
-            <img class="emoji-image" src="" alt="">
-        </a>
-        <a class="emoji-image-container" href="">
-            <img class="emoji-image" src="" alt="">
-        </a>
-    </div>
-
-    <div class="general-control-container flex">
-        <button class="share-button">share</button>
-        <button class="save-button" onclick="onSaveMeme()">save</button>
-        <a class="download-a" download>download</a>
-    </div>
-        
-        </div>
-
-        
-
-    </wrapper>
-
-
-
-
-</section>`;
-
-    return res;
-}
-
-function renderEditorBasic() {
-    let elPageContainer = document.querySelector('.page-content');
-
-    elPageContainer.innerHTML = getEditorHtml();
 }
 
 function onTextInputChange(elInput) {
@@ -190,6 +82,19 @@ function onColorChange(elInput) {
 
 }
 
+function onChangeFont(elSelect) {
+    let val = elSelect.value;
+
+    //data:
+    if (getSelectedLine()) {
+        changeSelectedLineFont(val);
+    }
+    changeDefaultFont(val);
+
+    // DOM:
+    refreshMeme();
+}
+
 function onMoveClick(sign) {
     // if there is no selected line - return:
     if (!getSelectedLine()) return;
@@ -230,6 +135,43 @@ function onSaveMeme() {
 
         let elDownload = document.querySelector('.download-a');
         elDownload.href = getCanvasUrl();
-    });
+        elDownload.setAttribute('download', '');
 
+        // update DOM visuals:
+        let elSave = document.querySelector('.save-a');
+        elSave.classList.add('saved');
+    });
+}
+
+function onToggleTextPicker() {
+    let elControlBar = document.querySelector('.control-bar');
+    elControlBar.classList.toggle('text-picker-open');
+}
+
+function unSave() {
+    // update DOM visuals:
+    let elSave = document.querySelector('.save-a');
+    elSave.classList.remove('saved');
+
+    let elDownload = document.querySelector('.download-a');
+    elDownload.removeAttribute('download');
+}
+
+function onDownloadTry() {
+    let elDownload = document.querySelector('.download-a');
+    let elNoticeBox = document.querySelector('.control-bar .notice-box');
+
+    if (!elDownload.hasAttribute('download')) {
+        let msg = 'please save your new meme before download';
+        sendControlBarNotice(msg);
+    }
+}
+
+function sendControlBarNotice(msg, time = 3000) {
+    let elNoticeBox = document.querySelector('.control-bar .notice-box');
+    elNoticeBox.innerText = msg
+
+    setTimeout(() => {
+        elNoticeBox.innerText = '';
+    }, time)
 }

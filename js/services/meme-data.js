@@ -142,6 +142,11 @@ function changeSelectedLineColor(val) {
     line.text.color = val;
 }
 
+function changeSelectedLineFont(val) {
+    let line = getSelectedLine();
+    line.text.font = val;
+}
+
 function removeSelectedLine() {
     let idx = gMeme.selectedLineIdx;
     gMeme.lines.splice(idx, 1);
@@ -149,6 +154,10 @@ function removeSelectedLine() {
 
 function changeDefaultColor(val) {
     gCurrs.text.color = val;
+}
+
+function changeDefaultFont(val) {
+    gCurrs.text.font = val;
 }
 
 function moveSelectedLine(sign) {

@@ -91,6 +91,20 @@ input[type="text"] {
 }
 
 
+/* Pages displaying control: */
+
+.gallery-page, .editor-page {
+    display: none !important;
+}
+
+body.gallery-open .gallery-page {
+    display: block !important;
+}
+body.editor-open .editor-page {
+    display: flex !important;
+}
+
+
 /* Helpers: */
 
 .center-childs {
@@ -273,10 +287,6 @@ input[type="text"] {
 
 }
 
-@media (max-width: 730px) {
-
-    
-}
 
 @media (max-width: 600px) {
 

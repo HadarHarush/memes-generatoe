@@ -1,45 +1,27 @@
 'use strict';
 
-
 function renderGallery() {
-    let elPageContainer = document.querySelector('.page-content');
+    let elMemesNav = document.querySelector('.memes-nav');
+    let elMemesGallery = document.querySelector('.memes-gallery');
 
-    elPageContainer.innerHTML = getGalleryHtml();
+    elMemesNav.innerHTML = getMemesNavHtml();
+    elMemesGallery.innerHTML = getMemesGalleryHtml();
+
+    document.body.classList.remove('editor-open');
+    document.body.classList.add('gallery-open');
 }
 
-function getGalleryHtml() {
-    let categoriesHtml = getCategoriesBarHtml();
-    let cardsHtml = getMemeCardsHtml();
-
-    let res = `<section class="gallery-page flex column big-fat-modal">
-    <nav class="memes-nav flex space-between align-center">
-        <div class="search-box">
-            <input type="text" placeholder="SEARCH" maxlength="7" size="10">
-        </div>
-
-        ${categoriesHtml}
-    </nav>
-
-    <section class="memes-gallery-container">
-    
-    <section class="memes-gallery">
-        ${cardsHtml}
-    </section>
-    
-    </section>
-</section>`;
-
-    return res;
-}
-
-function getCategoriesBarHtml() {
+function getMemesNavHtml() {
     let categories = getCategories();
 
     let liHtml = categories.map(item => {
         return `<li class="category-button">${item.name}</li>`;
     }).join('');
 
-    let res = `<ul class="categories-bar clean-list flex">
+    let res = `<div class="search-box">
+    <input type="text" placeholder="SEARCH" maxlength="7" size="10">
+</div>
+<ul class="categories-bar clean-list flex">
                     ${liHtml}
                     <li class="category-button">More...</li>
                 </ul>`;
@@ -47,7 +29,7 @@ function getCategoriesBarHtml() {
     return res;
 }
 
-function getMemeCardsHtml() {
+function getMemesGalleryHtml() {
     let memes = getMemes();
 
     let res = memes.map(item => {

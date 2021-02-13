@@ -34,9 +34,100 @@
 
     <section class="page-content main-content-layout">
 
-    </section>
+        <section class="gallery-page flex column big-fat-modal">
+            <nav class="memes-nav flex space-between align-center">
+            </nav>
 
-    <section class="about-page"></section>
+            <section class="memes-gallery-container">
+
+                <section class="memes-gallery">
+                    <!-- cards: -->
+                </section>
+            </section>
+        </section>
+
+        <section class="editor-page flex justify-center align-start">
+
+            <wrapper class="main-canvas-holder center-childs big-fat-modal">
+                <wrapper class="main-canvas-container">
+                    <canvas class="main-canvas"></canvas>
+                </wrapper>
+            </wrapper>
+
+            <wrapper class="control-bar-container big-fat-modal">
+
+                <div class="control-bar flex column center-childs">
+
+                    <!-- for mobile: -->
+                    <button class="text-picker-button-mobile" onclick="onToggleTextPicker()">
+                        <img class="t-image" src="images/buttons/text.png" />
+                        <img class="x-image" src="images/buttons/x.png" alt="">
+                    </button>
+
+                    <input class="text-picker" type="text" placeholder="Text line" oninput="onTextInputChange(this)">
+
+
+                    <div class="buttons-group-layout flex column align-center">
+
+                        <div class="line-control-container center-childs">
+
+                            <button class="add-line-button line-control-button center-childs" onclick="onAddLine()">
+                                <img src="images/buttons/plus.png" alt="add">
+                            </button>
+
+                            <button class="select-down-button line-control-button center-childs"
+                                onclick="onSelectDownClick()">
+                                <img src="images/buttons/chevron-down.png" alt="down">
+                            </button>
+
+                            <button class="remove-line-button line-control-button center-childs"
+                                onclick="onRemoveLine()">
+                                <img src="images/buttons/remove.svg" alt="add">
+                            </button>
+
+                        </div>
+
+                        <div class="text-control-container center-childs">
+                            <button class="text-control-button" onclick="onIncFont()">
+                                <img src="images/buttons/inc-font.png" alt="">
+                            </button>
+                            <button class="text-control-button" onclick="onDecFont()">
+                                <img src="images/buttons/dec-font.png" alt="">
+                            </button>
+                            <button class="text-control-button">
+                                <input type="color" name="color-picker" onchange="onColorChange(this)">
+                            </button>
+
+                        </div>
+
+                        <select class="font-picker" name="font-select" id="" value="impact"
+                            onchange="onChangeFont(this)">
+                            <option value="impact" style="font-family: impact;">IMPACT</option>
+                            <option value="arial" style="font-family: arial;">Arial</option>
+                        </select>
+
+                        <div class="general-control-container center-childs">
+                            <button class="share-button center-childs">
+                                <img class="share-img" src="images/buttons/share.svg" alt="" style="height: 20px;">
+                            </button>
+                            <a class="save-a center-childs" onclick="onSaveMeme()">
+                                <img class="no-fill" src="images/buttons/save.svg" alt="">
+                                <img class="fill" src="images/buttons/save-filled.svg" alt="">
+                            </a>
+                            <a class="download-a center-childs" onclick="onDownloadTry()">
+                                <img src="images/buttons/download.png" alt="">
+                            </a>
+                        </div>
+
+                        <p class="notice-box"></p>
+
+                    </div>
+                </div>
+            </wrapper>
+        </section>
+
+        <p class="text-box-simulate" style="position: absolute; z-index: -10; visibility: hidden;"></p>
+    </section>
 
 
 
