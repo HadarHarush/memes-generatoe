@@ -221,7 +221,7 @@ select[name="font-select"] > * {
     .text-picker-button-mobile {
         display: flex !important;
     }
-    .text-picker-button-mobile .x-image {
+    .text-picker-button-mobile .v-image {
         display: none;
     }
 
@@ -233,12 +233,12 @@ select[name="font-select"] > * {
     }
 
     .text-picker-open .text-picker-button-mobile {
-        background-color: #e74c3cb8;
+        background-color: #2ecc71bd;
     }
     .text-picker-open .text-picker-button-mobile .t-image {
         display: none;
     }
-    .text-picker-open .text-picker-button-mobile .x-image {
+    .text-picker-open .text-picker-button-mobile .v-image {
         display: block;
     }
 
@@ -257,3 +257,14 @@ select[name="font-select"] > * {
         border-radius: 25px !important;
     }
 }
+
+
+/* Avoid zooming: */
+
+/* canvas {
+    touch-action: manipulation;
+}
+
+.control-bar-container {
+    touch-action: manipulation;
+} */
