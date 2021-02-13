@@ -24,11 +24,17 @@
 
 /* Gallery: */
 
+.memes-gallery-container {
+    /* /* height: 50vh; */
+    /* overflow-y: scroll; */
+}
+
 .memes-gallery {
     display: grid;
     /* grid-auto-columns: auto; */
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: repeat(auto-fill);
+    /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr; */
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    /* grid-template-rows: repeat(auto-fill); */
     grid-gap: 20px;
     margin-bottom: 50px;
 }

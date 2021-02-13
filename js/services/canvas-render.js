@@ -15,14 +15,14 @@ let gClicksInfo = {
     mouseMoveLastDraw: null
 }
 
-function refreshMeme() {
+function refreshMeme(callback) {
     // clearCanvas();
-    drawMeme();
+    drawMeme(callback);
 }
 
-function drawMeme() {
+function drawMeme(callback) {
     //the image is allways the oldest layer:
-    drawImage(gMeme.imgUrl);
+    drawImage(gMeme.imgUrl, undefined, undefined, callback);
 
     //all the other drawing assigments are located in the onload event of the image
 }
@@ -32,7 +32,10 @@ function resizeCanvas() {
     gElCanvas = gElContainer.querySelector('canvas');
     let XYratio = getCurrMemeRatio();
 
+
+    // in desktop mode:
     gElContainer.style.height = gElContainer.offsetWidth * (1 / XYratio) + 'px';
+
 
     gElCanvas.width = gElContainer.offsetWidth;
     gElCanvas.height = gElContainer.offsetHeight;
@@ -76,9 +79,16 @@ function addTouchListeners() {
 
 function onDown(ev) {
     const pos = getEvPos(ev);
-    let line = findLineClicked(pos)
-    if (!line) return;
+    let line = findLineClicked(pos);
 
+    // case 1: didnt clicked on line
+    if (!line) {
+        selectLine();
+        drawMeme();
+        return;
+    }
+
+    // case 2: clicked on line
     gClicksInfo.mouseDown = true;
     gClicksInfo.mouseMoveLastDraw = pos;
 
@@ -149,11 +159,12 @@ function clearCanvas() {
 }
 
 
-function drawImage(url, dx = 0, dy = 0) {
+function drawImage(url, dx = 0, dy = 0, callback) {
     let img = new Image();
     img.src = url;
 
     let drawingStatus = 'drawing';
+
 
     img.onload = function () {
         gCtx.drawImage(img, dx, dy, gElCanvas.width, gElCanvas.height);
@@ -165,7 +176,12 @@ function drawImage(url, dx = 0, dy = 0) {
 
         //draw textBox to the selected line:
         let selectedLine = getSelectedLine();
-        drawTextBox(selectedLine);
+        if (selectedLine) drawTextBox(selectedLine);
+
+        if (callback) {
+            callback();
+        }
+
     };
 }
 
@@ -207,4 +223,9 @@ function getCanvasMeasures() {
         width: gElCanvas.offsetWidth,
         height: gElCanvas.offsetHeight
     }
+}
+
+function getCanvasUrl() {
+    let url = gElCanvas.toDataURL("image/png");
+    return url;
 }

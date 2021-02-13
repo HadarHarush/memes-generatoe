@@ -8,7 +8,7 @@ function renderEditor() {
     initCanvas();
 
     //update meme data:
-    let memeBase = getCurrMeme();
+    let memeBase = getCurrMemeBase();
     let meme = createMeme(memeBase.id, memeBase.categories);
     console.log('meme:', meme)
     updateMeme(meme);
@@ -22,33 +22,36 @@ function getEditorHtml() {
     
     <section class="editor-page flex justify-center align-start">
 
-    <wrapper class="main-canvas-holder center-childs">    
+    <wrapper class="main-canvas-holder center-childs big-fat-modal">    
         <wrapper class="main-canvas-container">
             <canvas class="main-canvas"></canvas>
         </wrapper>
     </wrapper>
 
-    <wrapper class="control-bar-container">
+    <wrapper class="control-bar-container big-fat-modal">
 
         <div class="control-bar flex column center-childs">
         
         
-        <input class="text-picker" type="text" placeholder="Text line" onchange="onTextInputChange(this)">
+        <input class="text-picker" type="text" placeholder="Text line" oninput="onTextInputChange(this)">
         <div class="line-control-container flex">
         
-            <button class="line-control-button center-childs" onclick="onMoveClick(-1)">
+            <button class="line-control-button center-childs hide" onclick="onMoveClick(-1)">
                 <img class="rotate90" src="images/buttons/arrow.png" alt="up">
             </button>
-            <button class="line-control-button center-childs" onclick="onMoveClick(1)">
+            <button class="line-control-button center-childs hide" onclick="onMoveClick(1)">
                 <img class="rotate270" src="images/buttons/arrow.png" alt="down">
             </button>
-            <button class="line-control-button center-childs" onclick="onSelectDownClick()">
-                <img src="images/buttons/chevron-down.png" alt="down">
-            </button>
-            <button class="line-control-button center-childs" onclick="onAddLine()">
+            
+            <button class="add-line-button line-control-button center-childs" onclick="onAddLine()">
                 <img src="images/buttons/plus.png" alt="add">
             </button>
-            <button class="line-control-button center-childs" onclick="onRemoveLine()">
+
+            <button class="select-down-button line-control-button center-childs" onclick="onSelectDownClick()">
+                <img src="images/buttons/chevron-down.png" alt="down">
+            </button>
+
+            <button class="remove-line-button line-control-button center-childs" onclick="onRemoveLine()">
                 <img src="images/buttons/remove.svg" alt="add">
             </button>
 
@@ -60,15 +63,6 @@ function getEditorHtml() {
         </button>
         <button class="text-control-button" onclick="onDecFont()">
             <img src="images/buttons/dec-font.png" alt="">
-        </button>
-        <button class="text-control-button">
-            <img src="images/buttons/align-left.png" alt="">
-        </button>
-        <button class="text-control-button">
-            <img src="images/buttons/align-center.png" alt="">
-        </button>
-        <button class="text-control-button">
-            <img src="images/buttons/align-right.png" alt="">
         </button>
         <button class="text-control-button">
             <input type="color" name="color-picker" onchange="onColorChange(this)">
@@ -109,7 +103,8 @@ function getEditorHtml() {
 
     <div class="general-control-container flex">
         <button class="share-button">share</button>
-        <button class="download-button">download</button>
+        <button class="save-button" onclick="onSaveMeme()">save</button>
+        <a class="download-a" download>download</a>
     </div>
         
         </div>
@@ -133,6 +128,9 @@ function renderEditorBasic() {
 }
 
 function onTextInputChange(elInput) {
+    // if there is no selected line - return:
+    if (!getSelectedLine()) return;
+
     let val = elInput.value;
 
     //data:
@@ -157,6 +155,9 @@ function onAddLine() {
 }
 
 function onIncFont() {
+    // if there is no selected line - return:
+    if (!getSelectedLine()) return;
+
     // data:
     IncSelectedLineFont()
 
@@ -165,6 +166,9 @@ function onIncFont() {
 }
 
 function onDecFont() {
+    // if there is no selected line - return:
+    if (!getSelectedLine()) return;
+
     // data:
     DecSelectedLineFont()
 
@@ -176,7 +180,9 @@ function onColorChange(elInput) {
     let val = elInput.value;
 
     //data:
-    changeSelectedLineColor(val);
+    if (getSelectedLine()) {
+        changeSelectedLineColor(val);
+    }
     changeDefaultColor(val);
 
     // DOM:
@@ -185,6 +191,9 @@ function onColorChange(elInput) {
 }
 
 function onMoveClick(sign) {
+    // if there is no selected line - return:
+    if (!getSelectedLine()) return;
+
     // data:
     moveSelectedLine(sign);
 
@@ -202,9 +211,25 @@ function onSelectDownClick() {
 }
 
 function onRemoveLine() {
+    // if there is no selected line - return:
+    if (!getSelectedLine()) return;
+
     // data:
     removeSelectedLine();
 
     // DOM:
     refreshMeme();
+}
+
+function onSaveMeme() {
+    //get a meme with no selected boxes:
+    selectLine();
+    refreshMeme(function () {
+        let meme = getCurrMeme();
+        // addMemeToLocalStorage(meme);
+
+        let elDownload = document.querySelector('.download-a');
+        elDownload.href = getCanvasUrl();
+    });
+
 }

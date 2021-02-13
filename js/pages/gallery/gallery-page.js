@@ -11,7 +11,7 @@ function getGalleryHtml() {
     let categoriesHtml = getCategoriesBarHtml();
     let cardsHtml = getMemeCardsHtml();
 
-    let res = `<section class="gallery-page flex column">
+    let res = `<section class="gallery-page flex column big-fat-modal">
     <nav class="memes-nav flex space-between align-center">
         <div class="search-box">
             <input type="text" placeholder="SEARCH" maxlength="7" size="10">
@@ -20,8 +20,12 @@ function getGalleryHtml() {
         ${categoriesHtml}
     </nav>
 
+    <section class="memes-gallery-container">
+    
     <section class="memes-gallery">
         ${cardsHtml}
+    </section>
+    
     </section>
 </section>`;
 

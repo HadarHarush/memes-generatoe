@@ -60,7 +60,7 @@ button {
     border: unset;
 }
 
-input {
+input[type="text"] {
     border: none;
     /* -webkit-appearance: none;
     -ms-appearance: none;
@@ -68,6 +68,12 @@ input {
     appearance: none;
     background: wheat; */
     outline: none;
+    background-color: #ebeef4;
+    padding-inline-start: 2rem;
+    border-radius: 2rem;
+    font-size: 1.5rem;
+    padding-top: 1em;
+    padding-bottom: 1em;
 }
 
 
@@ -91,6 +97,10 @@ input {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.hide {
+    display: none !important;
 }
 
 .clean-list {
@@ -172,11 +182,117 @@ input {
     /* background-color: black; */
 }
 
+.hamburger-button {
+    background-color: white;
+    align-self: center;
+    font-weight: bold;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    display: none;
+}
+
 
 /* page Content */
 
-.page-content {
+/* .page-content {
     border-radius: 50px;
     background-color: #4e6275;
     margin-bottom: 20px;
+} */
+
+.big-fat-modal {
+    border-radius: 50px;
+    background-color: #4e6275;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 15px 2px #1f1f1f;
+}
+
+
+@media (max-width: 1140px) {
+    .main-content-layout {
+        max-width: 830px;
+    }
+
+    .main-canvas-holder {
+        width: 45% !important;
+    }
+    .control-bar-container {
+        width: 35% !important;
+    }
+}
+
+/* start of hamburger menu: */
+@media (max-width: 900px) {
+
+    .main-content-layout {
+        max-width: unset;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .main-nav {
+        height: 65px;
+    }
+
+    .hamburger-button {
+        display: flex;
+    }
+
+    .main-nav ul {
+        display: none;
+    }
+    
+    .main-nav li {
+        margin-inline-end: unset !important;
+    }
+
+    .main-nav ul a{
+        height: 40px;
+        color: black !important;
+        width: unset;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }    
+    .main-nav li:last-child a{
+        background-color: white;
+        border-radius: 2rem;
+    }
+
+    .logo a{
+        height: 100%;
+        /* display: none; */
+    }
+
+    body.hamburger-open .logo {
+        display: none;
+    }
+    body.hamburger-open .main-nav ul {
+        display: flex;
+    }
+
+}
+
+@media (max-width: 730px) {
+
+    
+}
+
+@media (max-width: 600px) {
+
+    .categories-bar {
+        display: none;
+    }
+
+    .search-box {
+        flex-grow: 1;
+    }
+
+    .search-box input {
+        width: 100%;
+    }
+}
+
+@media (max-width: 470px) {
+    
 }

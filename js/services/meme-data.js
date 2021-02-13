@@ -77,6 +77,10 @@ function addLineToMeme(line) {
     gMeme.lines.push(line);
 }
 
+function getCurrMeme() {
+    return gMeme;
+}
+
 function getTextBoxMeasures(line) {
     let textBox = document.querySelector('.text-box-simulate');
 

@@ -14,16 +14,20 @@
 }
 
 .editor-page > .main-canvas-holder {
-    margin-inline-end: 10px;
+    margin-inline-end: 20px;
     width: 30%;
 }
 .editor-page > .control-bar-container {
-    margin-inline-start: 10px;
+    margin-inline-start: 20px;
     width: 50%;
 }
 
 
 /* Canvas: */
+
+.main-canvas-holder {
+    overflow: hidden;
+}
 
 .main-canvas-holder > .main-canvas-container {
     display: block;
@@ -37,25 +41,24 @@
 .control-bar {
     padding-top: 1rem;
     padding-bottom: 1rem;
-    background-color: #22af8d;
+    /* background-color: #22af8d; */
     border-radius: 1.5rem;
-    box-shadow: 0px 0px 15px 2px #1f1f1f;
+    /* box-shadow: 0px 0px 15px 2px #1f1f1f; */
 }
 
 /* buttons: */
 .control-bar button {
-    height: 2rem;
-    width: 2rem;
-    border: 1px solid black;
+    /* height: 2rem;
+    width: 2rem; */
+    /* border: 1px solid black;
     border-radius: 5px;
-    background-color: white;
+    background-color: white; */
     display: flex;
     justify-content: center;
     align-items: center;
-}
-.control-bar button img {
-    height: 1.5rem;
-    max-width: 1.5rem;
+    height: 46px;
+    width: 46px;
+    border-radius: 5px;
 }
 
 
@@ -66,10 +69,6 @@
 
 .control-bar .general-control-container button {
     width: unset;
-}
-.control-bar > .text-control-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
 }
 
 .emojis-control-container {
@@ -95,29 +94,55 @@ select[name="font-select"] > * {
 .line-control-container > button:not(:last-child){
     margin-inline-end: 10px;
 }
-/* .line-control-container > button {
-    padding: 2px;
-    border: 1px solid black;
-    border-radius: 5px;
-    background-color: white;
-} */
+
+.add-line-button {
+    background-color:#2ecc71;
+}
+.select-down-button {
+    background-color: #3498db;
+}
+.remove-line-button {
+    background-color: #e74c3c;
+}
+
+.add-line-button:hover {
+    background-color: #27ae60 ;
+}
+.select-down-button:hover {
+    background-color: #2980b9;
+}
+.remove-line-button:hover {
+    background-color: #c0392b;
+}
 
 /* text control: */
 
 .text-control-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 80%;
+    /* display: grid;
+    grid-template-columns: repeat(5, 1fr);
     grid-template-rows: 1fr 1fr;
     grid-row-gap: 5px;
-    grid-column-gap: 10px;
+    grid-column-gap: 10px; */
+    display: flex;
+    flex-direction: row wrap;
+    flex-flow: wrap;
+    justify-content: space-between;
     padding: 5px;
     border: 1px solid black;
     border-radius: 5px;
-    background-color: #3498db;
+    background-color: #17a5a0;
 }
 
 .text-control-container select {
-    grid-area: 2 / 1 / span 1 / span 2;
+    /* grid-area: 2 / 1 / span 1 / span 3; */
+    flex-grow: 1;
+    margin: 4px;
+}
+
+.text-control-container button {
+    background-color: white;
+    margin: 4px;
 }
 
 /* general buttuns: */

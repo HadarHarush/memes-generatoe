@@ -96,6 +96,10 @@ function getMemes() {
     return gMemesImages;
 }
 
+function getCurrMemeBase() {
+    return gCurrMemeImage;
+}
+
 
 
 function setCurrMeme(memeId) {
@@ -104,10 +108,6 @@ function setCurrMeme(memeId) {
         return memeId === item.id;
     });
     gCurrMemeImage = meme;
-}
-
-function getCurrMeme() {
-    return gCurrMemeImage;
 }
 
 function getCurrMemeRatio() {

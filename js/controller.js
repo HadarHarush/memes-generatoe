@@ -35,3 +35,11 @@ function renderCurrPage() {
             break;
     }
 }
+
+function toggleMenu() {
+    document.body.classList.toggle('hamburger-open');
+}
+
+function getWindowWidth() {
+    let width = window.innerWidth;
+}
