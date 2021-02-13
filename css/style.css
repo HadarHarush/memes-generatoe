@@ -98,7 +98,7 @@ input[type="text"] {
 }
 
 body.gallery-open .gallery-page {
-    display: block !important;
+    display: flex !important;
 }
 body.editor-open .editor-page {
     display: flex !important;

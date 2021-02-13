@@ -150,6 +150,74 @@ select[name="font-select"] > * {
 
 
 @media (max-width: 700px) {
+
+    /* new layout: */
+
+    .editor-page {
+        flex-direction: column;
+        align-items: center !important;
+        padding-top: 0;
+    }
+
+    .main-canvas-holder {
+        width: unset !important;
+        border-radius: 7px;
+    }
+
+    /* Components: */
+
+    /* Control-bar: */
+    
+    .editor-page {
+        margin-bottom: 70vh !important;
+    }
+    
+    .control-bar-container {
+        width: 80% !important;
+        min-width: 355px !important;
+        margin-inline-start: unset !important;
+        position: fixed;
+        bottom: 0;
+        /* max-width: 80%; */
+    }
+
+    .control-bar {
+        flex-direction: row !important;
+        flex-flow: wrap !important;
+    }
+
+    .control-bar > * {
+        margin-bottom: unset;
+    }
+
+    .buttons-group-layout {
+        flex-grow: 1;
+        flex-direction: row !important;
+        justify-content: center;
+    }
+    .buttons-group-layout > *:not(p) {
+        flex-direction: column !important;
+        margin-inline-end: 5px;
+    }
+
+    .control-bar > .buttons-group-layout > * {
+        margin-bottom: unset !important;
+    }
+
+    .buttons-group-layout > * > *:not(:last-child) {
+        margin-inline-end: unset;
+        margin-bottom: 5px;
+    }
+
+    .font-picker {
+        align-self: flex-start;
+    }
+
+    .text-picker-button-mobile {
+        margin-inline-start: 15px;
+        margin-bottom: unset !important;
+    }
+
     .text-picker-button-mobile {
         display: flex !important;
     }

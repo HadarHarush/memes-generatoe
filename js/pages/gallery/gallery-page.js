@@ -34,7 +34,8 @@ function getMemesGalleryHtml() {
 
     let res = memes.map(item => {
         return `<article class="meme-preview-box center-childs" onclick="onMemeImageSelect(this)" data-id="${item.id}">
-                    <img src="${item.rootUrl}" alt="">
+                <div class="shadow"></div>
+                <img src="${item.rootUrl}" alt="">
                 </article>`
     }).join('');
 

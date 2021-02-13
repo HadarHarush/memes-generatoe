@@ -175,3 +175,5 @@ function sendControlBarNotice(msg, time = 3000) {
         elNoticeBox.innerText = '';
     }, time)
 }
+
+window.onresize = resizeCanvas();
