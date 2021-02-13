@@ -19,7 +19,7 @@ let gCurrs = {
 
 function createMeme(imgId, categories) {
     let res = {
-        imgUrl: `/images/memes/${imgId}.jpg`,
+        imgUrl: `/memes-generatoe/images/memes/${imgId}.jpg`,
         categories,
         selectedLineIdx: 0,
         lines: [createLine()]
