@@ -27,6 +27,7 @@
 
 .main-canvas-holder {
     overflow: hidden;
+    border-radius: 2px;
 }
 
 .main-canvas-holder > .main-canvas-container {
@@ -113,6 +114,9 @@ select[name="font-select"] > * {
 .text-control-container button {
     background-color: white;
 }
+.text-control-container button:hover {
+    background-color: rgb(228, 228, 228);
+}
 
 /* Font-picker: */
 
@@ -134,15 +138,24 @@ select[name="font-select"] > * {
 
 .general-control-container button, .general-control-container a{
     height: 40px;
-    background-color: black;
+    background-color: #131313;
     width: 40px;
     border-radius: 20px;
-} 
+}
+.general-control-container button:hover, .general-control-container a:hover {
+    background-color: black;
+}
 
 /* Notice-box: */
 
 .control-bar .notice-box {
     color: black;
+}
+
+input[type="color"] {
+    border: none;
+    outline: none;
+    cursor: pointer;
 }
 
 
