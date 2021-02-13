@@ -202,7 +202,8 @@ function drawLine(line) {
     gCtx.beginPath();
     gCtx.font = `${line.text.size}px ${line.text.font}`;
     gCtx.fillStyle = line.text.color;
-    gCtx.strokStyle = 'black'
+    gCtx.strokStyle = 'black';
+    gCtx.lineWidth = line.text.strokeSize;
     gCtx.textAlign = "center";
     gCtx.fillText(line.text.content, line.textPos.x, line.textPos.y);
     gCtx.strokeText(line.text.content, line.textPos.x, line.textPos.y);

@@ -8,7 +8,8 @@ let gCurrs = {
         size: 30,
         color: 'white',
         font: 'impact',
-        padding: 10
+        padding: 10,
+        strokeSize: 1
     },
     pos: {
         x: null,
@@ -19,7 +20,7 @@ let gCurrs = {
 
 function createMeme(imgId, categories) {
     let res = {
-        imgUrl: `/images/memes/${imgId}.jpg`,
+        imgUrl: `/memes-generatoe/images/memes/${imgId}.jpg`,
         categories,
         selectedLineIdx: 0,
         lines: [createLine()]
@@ -56,7 +57,8 @@ function createLine() {
             color: gCurrs.text.color,
             font: gCurrs.text.font,
             content: gCurrs.text.content,
-            padding: gCurrs.text.padding
+            padding: gCurrs.text.padding,
+            strokeSize: gCurrs.text.strokeSize
         },
         textBoxMeasures: null,
         textPos: null,
@@ -242,4 +244,8 @@ function getDist(newPos, lastPos) {
         x: newPos.x - lastPos.x,
         y: newPos.y - lastPos.y
     }
+}
+
+function getDefaultStrokeSize() {
+
 }
