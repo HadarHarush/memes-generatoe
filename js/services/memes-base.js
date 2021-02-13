@@ -28,65 +28,77 @@ let gMemesImages = [
         categories: ['happy', 'woman']
     },
     {
-        id: 3,
-        rootUrl: 'images/memes/3.jpg',
-        url: 'images/memes/3.jpg',
+        id: 4,
+        rootUrl: 'images/memes/4.jpg',
+        url: 'images/memes/4.jpg',
         categories: ['happy', 'woman']
     },
     {
-        id: 3,
-        rootUrl: 'images/memes/3.jpg',
-        url: 'images/memes/3.jpg',
+        id: 5,
+        rootUrl: 'images/memes/5.jpg',
+        url: 'images/memes/5.jpg',
         categories: ['happy', 'woman']
     },
     {
-        id: 3,
-        rootUrl: 'images/memes/3.jpg',
-        url: 'images/memes/3.jpg',
+        id: 6,
+        rootUrl: 'images/memes/6.jpg',
+        url: 'images/memes/6.jpg',
         categories: ['happy', 'woman']
     },
     {
-        id: 3,
-        rootUrl: 'images/memes/3.jpg',
-        url: 'images/memes/3.jpg',
+        id: 7,
+        rootUrl: 'images/memes/7.jpg',
+        url: 'images/memes/7.jpg',
         categories: ['happy', 'woman']
     },
     {
-        id: 3,
-        rootUrl: 'images/memes/3.jpg',
-        url: 'images/memes/3.jpg',
+        id: 8,
+        rootUrl: 'images/memes/8.jpg',
+        url: 'images/memes/8.jpg',
         categories: ['happy', 'woman']
     },
     {
-        id: 3,
-        rootUrl: 'images/memes/3.jpg',
-        url: 'images/memes/3.jpg',
+        id: 9,
+        rootUrl: 'images/memes/9.jpg',
+        url: 'images/memes/9.jpg',
         categories: ['happy', 'woman']
     },
     {
-        id: 3,
-        rootUrl: 'images/memes/3.jpg',
-        url: 'images/memes/3.jpg',
+        id: 11,
+        rootUrl: 'images/memes/11.jpg',
+        url: 'images/memes/11.jpg',
         categories: ['happy', 'woman']
     },
     {
-        id: 3,
-        rootUrl: 'images/memes/3.jpg',
-        url: 'images/memes/3.jpg',
+        id: 12,
+        rootUrl: 'images/memes/12.jpg',
+        url: 'images/memes/12.jpg',
         categories: ['happy', 'woman']
     },
     {
-        id: 3,
-        rootUrl: 'images/memes/3.jpg',
-        url: 'images/memes/3.jpg',
+        id: 13,
+        rootUrl: 'images/memes/13.jpg',
+        url: 'images/memes/13.jpg',
         categories: ['happy', 'woman']
     },
     {
-        id: 3,
-        rootUrl: 'images/memes/3.jpg',
-        url: 'images/memes/3.jpg',
+        id: 14,
+        rootUrl: 'images/memes/14.jpg',
+        url: 'images/memes/14.jpg',
         categories: ['happy', 'woman']
     },
+    {
+        id: 15,
+        rootUrl: 'images/memes/15.jpg',
+        url: 'images/memes/15.jpg',
+        categories: ['happy', 'woman']
+    },
+    {
+        id: 16,
+        rootUrl: 'images/memes/16.jpg',
+        url: 'images/memes/16.jpg',
+        categories: ['happy', 'woman']
+    }
 
 
 

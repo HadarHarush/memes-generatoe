@@ -31,7 +31,7 @@ html {
 
 body {
     margin: 0;
-    background-color: #34495e;
+    background-color: #22252d;
 }
 
 h1, h2, h3, h4, h5 {
@@ -137,6 +137,7 @@ body.editor-open .editor-page {
     color: #ffffff !important;
 }
 
+
 /* Flex-helpers: */
 
 .flex {
@@ -182,6 +183,10 @@ body.editor-open .editor-page {
     /* padding: 0 100px; */
 }
 
+.inner-nav {
+    padding-inline-start: 1rem;
+}
+
 .main-nav .logo a {
     font-family: apercu-bold;
 }
@@ -190,10 +195,20 @@ body.editor-open .editor-page {
     margin-inline-end: 2rem;
 }
 
-.main-nav a {
-    height: 100px;
-    width: 100px;
-    /* background-color: black; */
+.nav-button {
+    height: 40px;
+    color: white;
+    width: unset;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: 2rem;
+}
+.nav-button.active {
+    background-color: white;
+    color: black !important;
+}
+.nav-button:hover:not(.active) {
+    background-color: #73767e;
 }
 
 .hamburger-button {
@@ -217,7 +232,7 @@ body.editor-open .editor-page {
 
 .big-fat-modal {
     border-radius: 50px;
-    background-color: #4e6275;
+    background-color: #383b43;
     margin-bottom: 20px;
     box-shadow: 0px 0px 15px 2px #1f1f1f;
 }
@@ -249,6 +264,10 @@ body.editor-open .editor-page {
         height: 65px;
     }
 
+    .inner-nav {
+        margin-inline-start: unset;
+    }
+
     .hamburger-button {
         display: flex;
     }
@@ -257,8 +276,8 @@ body.editor-open .editor-page {
         display: none;
     }
     
-    .main-nav li {
-        margin-inline-end: unset !important;
+    .main-nav li:not(:last-child) {
+        margin-inline-end: 5px;
     }
 
     .main-nav ul a{
@@ -268,10 +287,6 @@ body.editor-open .editor-page {
         padding-left: 1rem;
         padding-right: 1rem;
     }    
-    .main-nav li:last-child a{
-        background-color: white;
-        border-radius: 2rem;
-    }
 
     .logo a{
         height: 100%;
